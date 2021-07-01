@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% for data in object_list %}
+        <a href="{% url 'main_app:regions' slug=data.slug %}">{{ data.name | safe}}</a><br>
+        {% if data.image %}<br>
+
+            <img src="{{ data.image.url }}" alt=""><br>
+        {% endif %}
+        {{ data.description | safe | truncatechars:100 }}<br>
+    {% endfor %}
+
+</body>
+</html>
